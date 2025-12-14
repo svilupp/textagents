@@ -15,7 +15,6 @@ import textagents  # noqa: E402
 
 
 async def main():
-
     # Load the minimal judge
     agent = textagents.load_agent(EXAMPLES_DIR / "minimal_judge.txt")
 
