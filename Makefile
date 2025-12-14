@@ -1,4 +1,4 @@
-.PHONY: install lint format format-check typecheck test test-cov test-cov-html check ci docs docs-serve clean help
+.PHONY: install lint format format-check typecheck test test-cov test-cov-html check ci docs docs-serve clean publish help
 
 .DEFAULT_GOAL := help
 
@@ -49,6 +49,13 @@ docs: ## Build documentation
 
 docs-serve: ## Serve documentation locally with live reload
 	uv run mkdocs serve
+
+##@ Publishing
+
+publish: ## Build and publish to PyPI
+	rm -rf dist/
+	uv build
+	uv publish
 
 ##@ Cleanup
 
