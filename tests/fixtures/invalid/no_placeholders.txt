@@ -1,0 +1,7 @@
+---
+[agent]
+model = "openai:gpt-5"
+
+[agent.output_type.field]
+---
+Static prompt without any placeholders.

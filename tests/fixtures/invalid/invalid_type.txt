@@ -1,0 +1,8 @@
+---
+[agent]
+model = "openai:gpt-5"
+
+[agent.output_type.field]
+type = "dict[str,str]"
+---
+Test: {input}

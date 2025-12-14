@@ -1,0 +1,12 @@
+---
+[agent]
+model = "openai:gpt-5"
+
+[agent.output_type.reasoning]
+type = "str"
+description = "Brief reasoning."
+
+[agent.output_type.is_valid]
+description = "Whether valid."
+---
+Evaluate: {input}

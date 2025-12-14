@@ -1,0 +1,7 @@
+---
+[agent]
+name = "test"
+
+[agent.output_type.field]
+---
+Test: {input}

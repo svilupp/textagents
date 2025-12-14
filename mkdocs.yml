@@ -1,0 +1,119 @@
+site_name: TextAgents
+site_description: Declarative, file-based PydanticAI agents
+site_author: Jan Siml
+site_url: https://jsiml.github.io/textagents/
+
+repo_name: jsiml/textagents
+repo_url: https://github.com/jsiml/textagents
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2025 Jan Siml
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: true
+            show_root_heading: true
+            show_root_full_path: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            members_order: source
+            merge_init_into_class: true
+            separate_signature: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            filters:
+              - "!^_"
+              - "^__init__$"
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jsiml
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/textagents/
+
+nav:
+  - Home: index.md
+  - Guide:
+      - Agent Files: guide/agent-files.md
+      - CLI: guide/cli.md
+      - Logfire: guide/logfire.md
+  - Examples:
+      - Safety Judge: examples/safety-judge.md
+      - Sentiment Analyzer: examples/sentiment-analyzer.md
+  - Reference:
+      - API: reference/api.md
+      - Errors: reference/errors.md
