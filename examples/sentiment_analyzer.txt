@@ -1,0 +1,42 @@
+---
+[agent]
+name = "sentiment_analyzer"
+model = "openai:gpt-5"
+retries = 2
+
+[agent.settings]
+temperature = 0
+
+[agent.input_type]
+text = { type = "str", description = "Text to analyze for sentiment" }
+
+[agent.output_type]
+name = "SentimentResult"
+description = "Sentiment analysis result with confidence score."
+
+[agent.output_type.reasoning]
+type = "str"
+max_length = 300
+description = "Explanation of sentiment detection."
+
+[agent.output_type.sentiment]
+type = "str"
+enum = ["positive", "negative", "neutral", "mixed"]
+description = "Overall sentiment classification."
+
+[agent.output_type.confidence]
+type = "float"
+ge = 0.0
+le = 1.0
+description = "Confidence score between 0 and 1."
+
+[agent.output_type.key_phrases]
+type = "list[str]"
+optional = true
+description = "Key phrases that influenced the sentiment."
+---
+Analyze the sentiment of the following text:
+
+{text}
+
+Provide your reasoning, then classify the sentiment with a confidence score.
